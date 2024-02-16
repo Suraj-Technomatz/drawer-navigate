@@ -6,8 +6,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import HomeScreen from "./screens/HomeScreen";
 import DetailsScreen from "./screens/DetailsScreen";
 import DrawerContent from "./components/DrawerContent";
-import ProfileScreen from "./screens/ProfileScreen";
-import TestingScreen from "./screens/TestingScreen";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -21,7 +19,6 @@ const HomeStackNavigator = () => (
         headerShown: false, // Disable default header
       }}
     />
-    <Stack.Screen name="Profile" component={ProfileScreen} />
   </Stack.Navigator>
 );
 
@@ -34,15 +31,8 @@ const DrawerNavigator = () => {
   );
 };
 
-function MyDrawer() {
+function App() {
   return (
-    // <NavigationContainer>
-    //   <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
-    //     <Drawer.Screen name="Home" component={StackNavigator} />
-    //     <Drawer.Screen name="Details" component={DetailsScreen} />
-    //     {/* Add more screens here */}
-    //   </Drawer.Navigator>
-    // </NavigationContainer>
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
@@ -52,12 +42,10 @@ function MyDrawer() {
             headerShown: false, // Disable default header
           }}
         />
-        <Stack.Screen name="Profile" component={ProfileScreen} />
-        <Stack.Screen name="Testing" component={TestingScreen} />
-        <Stack.Screen name="Details" component={DetailsScreen} />
+        <Stack.Screen name="आरती" component={DetailsScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );
 }
 
-export default MyDrawer;
+export default App;

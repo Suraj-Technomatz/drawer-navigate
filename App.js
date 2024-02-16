@@ -2,6 +2,8 @@ import "react-native-gesture-handler"; // Make sure to import this before using 
 import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
+import { Provider } from "react-redux";
+import store from "./redux/store";
 
 import HomeScreen from "./screens/HomeScreen";
 import DetailsScreen from "./screens/DetailsScreen";
@@ -33,24 +35,26 @@ const DrawerNavigator = () => {
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator initialRouteName="Home">
-        <Stack.Screen
-          name="Home Stack"
-          component={DrawerNavigator}
-          options={{
-            headerShown: false, // Disable default header
-          }}
-        />
-        <Stack.Screen
-          name="आरती"
-          component={DetailsScreen}
-          options={{
-            headerShown: false, // Disable default header
-          }}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer>
+        <Stack.Navigator initialRouteName="Home">
+          <Stack.Screen
+            name="Home Stack"
+            component={DrawerNavigator}
+            options={{
+              headerShown: false, // Disable default header
+            }}
+          />
+          <Stack.Screen
+            name="आरती"
+            component={DetailsScreen}
+            options={{
+              headerShown: false, // Disable default header
+            }}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </Provider>
   );
 }
 

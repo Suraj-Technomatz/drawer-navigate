@@ -16,11 +16,19 @@ const DrawerContent = ({ navigation }) => {
           <Text style={styles.logoText}>(आरती संग्रह), सम्पूर्ण....</Text>
         </View>
       </View>
+
       <TouchableOpacity
         onPress={() => handleNavigate("Home")}
         style={styles.tab}
       >
         <Text style={styles.tabText}>आरती संग्रह</Text>
+      </TouchableOpacity>
+
+      <TouchableOpacity
+        onPress={() => handleNavigate("पसंदीदा")}
+        style={styles.tab}
+      >
+        <Text style={styles.tabText}>पसंदीदा</Text>
       </TouchableOpacity>
     </View>
   );
@@ -44,12 +52,12 @@ const styles = StyleSheet.create({
     flex: 1,
     marginTop: 60,
     backgroundColor: "orangered",
-    // backgroundColor: "indianred",
     color: "#fff",
   },
   tab: {
     backgroundColor: "#fff",
     paddingVertical: 10,
+    marginBottom: 15,
   },
   tabText: {
     fontWeight: "bold",

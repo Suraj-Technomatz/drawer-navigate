@@ -1,9 +1,9 @@
 import { combineReducers } from "redux";
-import counterReducer from "./defaultReducer";
+import defaultReducer from "./defaultReducer";
 
 const rootReducer = combineReducers({
   // your reducer slices will be added here
-  counterReducer,
+  default: defaultReducer,
 });
 
 export default rootReducer;

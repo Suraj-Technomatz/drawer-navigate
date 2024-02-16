@@ -1,21 +1,11 @@
 import React from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { useSelector, useDispatch } from "react-redux";
-
-import {
-  increment,
-  decrement,
-  incrementByAmount,
-} from "../../redux/reducers/defaultReducer";
 
 import { godsName } from "../../utils";
 import BackgroundImage from "../../components/ImageBackground";
 
 export default function HomeScreen({ navigation }) {
-  const count = useSelector((state) => state.counterReducer.value);
-  const dispatch = useDispatch();
-  console.log("============ Count ===========", count);
   const onHandlePress = (id) => {
     navigation.navigate("आरती", {
       id,

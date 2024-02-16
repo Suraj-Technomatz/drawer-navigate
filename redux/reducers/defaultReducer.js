@@ -1,8 +1,9 @@
-// counterSlice.js
 import { createSlice } from "@reduxjs/toolkit";
+import { godsName } from "../../utils";
 
 const initialState = {
-  value: 0,
+  favourite: godsName || [],
+  godsNames: godsName,
 };
 
 const counterSlice = createSlice({

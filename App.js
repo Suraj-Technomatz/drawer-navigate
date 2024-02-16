@@ -8,6 +8,7 @@ import store from "./redux/store";
 import HomeScreen from "./screens/HomeScreen";
 import DetailsScreen from "./screens/DetailsScreen";
 import DrawerContent from "./components/DrawerContent";
+import FavouriteSceen from "./screens/FavouriteSceen";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -52,6 +53,7 @@ function App() {
               headerShown: false, // Disable default header
             }}
           />
+          <Stack.Screen name="पसंदीदा" component={FavouriteSceen} />
         </Stack.Navigator>
       </NavigationContainer>
     </Provider>

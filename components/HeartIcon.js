@@ -1,5 +1,5 @@
 import React from "react";
-import { View, TouchableOpacity, Text } from "react-native";
+import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 function HeartIcon({ label, isLiked, handlePress, navigation }) {
@@ -8,30 +8,13 @@ function HeartIcon({ label, isLiked, handlePress, navigation }) {
   };
 
   return (
-    <View
-      style={{
-        flexDirection: "row",
-        justifyContent: "space-between",
-        backgroundColor: "#fff",
-        marginBottom: 10,
-        // padding: 0,
-      }}
-    >
-      <TouchableOpacity
-        onPress={goBack}
-        style={{
-          flexDirection: "row",
-          gap: 8,
-          justifyContent: "center",
-          alignContent: "center",
-          paddingLeft: 20,
-        }}
-      >
+    <View style={styles.container}>
+      <TouchableOpacity onPress={goBack} style={styles.backBtn}>
         <View>
           <FontAwesome name="arrow-left" size={15} />
         </View>
         <View>
-          <Text>{label}</Text>
+          <Text style={styles.headText}>{label}</Text>
         </View>
       </TouchableOpacity>
 
@@ -47,3 +30,21 @@ function HeartIcon({ label, isLiked, handlePress, navigation }) {
 }
 
 export default HeartIcon;
+
+const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    backgroundColor: "#fff",
+    marginBottom: 10,
+    padding: 10,
+  },
+  backBtn: {
+    flexDirection: "row",
+    gap: 15,
+    alignItems: "center",
+    alignContent: "center",
+    paddingLeft: 20,
+  },
+  headText: { fontSize: 18, fontWeight: "bold" },
+});

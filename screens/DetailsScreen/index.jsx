@@ -27,12 +27,12 @@ export default function DetailsScreen({ route, navigation }) {
     <>
       <BackgroundImage source={image}>
         <SafeAreaView style={styles.detailsContainer}>
-          {/* <HeartIcon
+          <HeartIcon
             isLiked={isLiked}
             handlePress={handlePress}
             label="आरती"
             navigation={navigation}
-          /> */}
+          />
           <ScrollView>
             <View
               style={{

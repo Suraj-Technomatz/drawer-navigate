@@ -42,7 +42,13 @@ function App() {
             headerShown: false, // Disable default header
           }}
         />
-        <Stack.Screen name="आरती" component={DetailsScreen} />
+        <Stack.Screen
+          name="आरती"
+          component={DetailsScreen}
+          options={{
+            headerShown: false, // Disable default header
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

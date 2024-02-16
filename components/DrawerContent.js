@@ -10,10 +10,8 @@ const DrawerContent = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text>Drawer Content</Text>
-      <Button title="Home" onPress={() => handleNavigate("Home")} />
-      <Button title="Profile" onPress={() => handleNavigate("Profile")} />
-      <Button title="Details" onPress={() => handleNavigate("Details")} />
-      <Button title="Testing" onPress={() => handleNavigate("Testing")} />
+      <Button title="आरती संग्रह" onPress={() => handleNavigate("Home")} />
+      {/* <Button title="आरती" onPress={() => handleNavigate("Details")} /> */}
     </View>
   );
 };

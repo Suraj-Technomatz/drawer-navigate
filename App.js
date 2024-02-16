@@ -25,7 +25,7 @@ const HomeStackNavigator = () => (
 const DrawerNavigator = () => {
   return (
     <Drawer.Navigator drawerContent={(props) => <DrawerContent {...props} />}>
-      <Drawer.Screen name="HomeDrawer" component={HomeStackNavigator} />
+      <Drawer.Screen name="आरती संग्रह" component={HomeStackNavigator} />
       {/* Add more screens here */}
     </Drawer.Navigator>
   );
@@ -36,7 +36,7 @@ function App() {
     <NavigationContainer>
       <Stack.Navigator initialRouteName="Home">
         <Stack.Screen
-          name="HomeStack"
+          name="Home Stack"
           component={DrawerNavigator}
           options={{
             headerShown: false, // Disable default header

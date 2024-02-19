@@ -10,6 +10,7 @@ import {
 import { godsName } from "../../utils/constant";
 import BackgroundImage from "../../components/ImageBackground";
 import HeartIcon from "../../components/HeartIcon";
+import CustomDialog from "../../components/CustomDialog";
 
 export default function DetailsScreen({ route, navigation }) {
   const { id } = route.params;
@@ -20,17 +21,18 @@ export default function DetailsScreen({ route, navigation }) {
   const image = require("../../assets/gradiant.jpg");
   return (
     <>
-      <BackgroundImage source={image}>
-        <SafeAreaView style={styles.detailsContainer}>
-          <HeartIcon id={id} label="आरती" navigation={navigation} />
-          <ScrollView>
-            <View
-              style={{
-                flex: 1,
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
+      {/* <BackgroundImage source={image}> */}
+      <SafeAreaView style={styles.detailsContainer}>
+        <HeartIcon id={id} label="आरती" navigation={navigation} />
+        <ScrollView>
+          <View
+            style={{
+              flex: 1,
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <View>
               {getData().map((god) => {
                 return (
                   <View key={god.id}>
@@ -54,9 +56,10 @@ export default function DetailsScreen({ route, navigation }) {
                 );
               })}
             </View>
-          </ScrollView>
-        </SafeAreaView>
-      </BackgroundImage>
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+      {/* </BackgroundImage> */}
     </>
   );
 }

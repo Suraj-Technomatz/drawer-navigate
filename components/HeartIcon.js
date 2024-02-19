@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
 import { addFav, removeFav } from "../redux/reducers/defaultReducer";
+import CustomDialog from "./CustomDialog";
 
 function HeartIcon({ label, navigation, id }) {
+  const [visible, setVisible] = useState(false);
   const favourites = useSelector((state) => state?.default?.favourites);
 
   const dispatch = useDispatch();
@@ -23,12 +25,16 @@ function HeartIcon({ label, navigation, id }) {
     }
   }
 
-  function onHandlePressFavIcon() {
+  function toggleFav() {
     if (isFavourite()) {
       dispatch(removeFav({ id }));
     } else {
       dispatch(addFav({ id }));
     }
+  }
+
+  function onHandlePressFavIcon() {
+    setVisible(true);
   }
 
   return (
@@ -42,7 +48,7 @@ function HeartIcon({ label, navigation, id }) {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={onHandlePressFavIcon}>
+      <TouchableOpacity onPress={toggleFav}>
         {isFavourite() ? (
           <FontAwesome name="heart" size={30} color="red" />
         ) : (

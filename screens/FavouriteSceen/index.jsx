@@ -11,7 +11,9 @@ function FavouriteSceen({ navigation }) {
       <View style={styles.container}>
         {favourite.length === 0 && (
           <View style={styles.noFavourite}>
-            <Text>You don't have any favourite list yet</Text>
+            <Text style={{ fontSize: 16, fontWeight: "bold" }}>
+              You don't have any favourite list yet
+            </Text>
           </View>
         )}
         {favourite.length > 0 && (
@@ -38,7 +40,14 @@ export default FavouriteSceen;
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
   },
-  noFavourite: {},
+  noFavourite: {
+    padding: 50,
+    alignItems: "center",
+    justifyContent: "center",
+    backgroundColor: "yellow",
+  },
   favouriteList: {},
 });

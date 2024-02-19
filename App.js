@@ -3,6 +3,8 @@ import { createDrawerNavigator } from "@react-navigation/drawer";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NavigationContainer } from "@react-navigation/native";
 import { Provider } from "react-redux";
+import { Provider as PaperProvider } from "react-native-paper";
+
 import store from "./redux/store";
 
 import HomeScreen from "./screens/HomeScreen";
@@ -36,27 +38,29 @@ const DrawerNavigator = () => {
 
 function App() {
   return (
-    <Provider store={store}>
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
-          <Stack.Screen
-            name="Home Stack"
-            component={DrawerNavigator}
-            options={{
-              headerShown: false, // Disable default header
-            }}
-          />
-          <Stack.Screen
-            name="आरती"
-            component={DetailsScreen}
-            options={{
-              headerShown: false, // Disable default header
-            }}
-          />
-          <Stack.Screen name="पसंदीदा" component={FavouriteSceen} />
-        </Stack.Navigator>
-      </NavigationContainer>
-    </Provider>
+    <PaperProvider>
+      <Provider store={store}>
+        <NavigationContainer>
+          <Stack.Navigator initialRouteName="Home">
+            <Stack.Screen
+              name="Home Stack"
+              component={DrawerNavigator}
+              options={{
+                headerShown: false, // Disable default header
+              }}
+            />
+            <Stack.Screen
+              name="आरती"
+              component={DetailsScreen}
+              options={{
+                headerShown: false, // Disable default header
+              }}
+            />
+            <Stack.Screen name="पसंदीदा" component={FavouriteSceen} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      </Provider>
+    </PaperProvider>
   );
 }
 

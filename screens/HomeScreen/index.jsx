@@ -16,6 +16,7 @@ export default function HomeScreen({ navigation }) {
 
   return (
     <BackgroundImage source={image}>
+      <View></View>
       <View style={{ flex: 1 }}>
         {godsName.map((godN) => (
           <View key={godN?.id}>

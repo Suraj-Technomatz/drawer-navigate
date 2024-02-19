@@ -12,6 +12,8 @@ import BackgroundImage from "../../components/ImageBackground";
 import HeartIcon from "../../components/HeartIcon";
 
 export default function DetailsScreen({ route, navigation }) {
+  const { itemId, otherParam } = route.params;
+
   const [isLiked, setIsLiked] = useState(false);
   const handlePress = () => {
     setIsLiked(!isLiked); // Toggle the filled state

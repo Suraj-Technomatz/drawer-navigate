@@ -5,7 +5,7 @@ import FavouriteItem from "../../components/FavouriteItem";
 
 function FavouriteSceen({ navigation }) {
   const favourite = useSelector((state) => state.default.favourite);
-  console.log("=========== SSSSSSSSSSSS =========", favourite);
+
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.container}>

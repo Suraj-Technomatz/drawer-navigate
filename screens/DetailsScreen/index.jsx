@@ -12,13 +12,6 @@ import BackgroundImage from "../../components/ImageBackground";
 import HeartIcon from "../../components/HeartIcon";
 
 export default function DetailsScreen({ route, navigation }) {
-  const { itemId, otherParam } = route.params;
-
-  const [isLiked, setIsLiked] = useState(false);
-  const handlePress = () => {
-    setIsLiked(!isLiked); // Toggle the filled state
-  };
-
   const { id } = route.params;
 
   const getData = () => {
@@ -29,12 +22,7 @@ export default function DetailsScreen({ route, navigation }) {
     <>
       <BackgroundImage source={image}>
         <SafeAreaView style={styles.detailsContainer}>
-          <HeartIcon
-            isLiked={isLiked}
-            handlePress={handlePress}
-            label="आरती"
-            navigation={navigation}
-          />
+          <HeartIcon id={id} label="आरती" navigation={navigation} />
           <ScrollView>
             <View
               style={{

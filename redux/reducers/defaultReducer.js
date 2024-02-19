@@ -2,25 +2,34 @@ import { createSlice } from "@reduxjs/toolkit";
 import { godsName } from "../../utils";
 
 const initialState = {
-  favourite: godsName || [],
+  favourites: [],
   godsNames: godsName,
 };
 
 const counterSlice = createSlice({
-  name: "counter",
+  name: "default",
   initialState,
   reducers: {
-    increment: (state) => {
-      state.value += 1;
+    addFav: (state, action) => {
+      const { id } = action.payload;
+      const record = state.godsNames.find((godsName) => godsName.id === id);
+      const updatedFavs = [...state.favourites];
+      updatedFavs.push(record);
+      state.favourites = updatedFavs;
     },
-    decrement: (state) => {
-      state.value -= 1;
-    },
-    incrementByAmount: (state, action) => {
-      state.value += action.payload;
+    removeFav: (state, action) => {
+      const { id } = action.payload;
+      let records = [];
+      state.favourites.map((godsName) => {
+        if (godsName.id !== id) {
+          records.push(godsName);
+        }
+      });
+      console.log("========== RECORDS =========", records);
+      state.favourites = records;
     },
   },
 });
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions;
+export const { addFav, removeFav } = counterSlice.actions;
 export default counterSlice.reducer;

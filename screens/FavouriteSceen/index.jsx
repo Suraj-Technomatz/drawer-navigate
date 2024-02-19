@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import FavouriteItem from "../../components/FavouriteItem";
 
 function FavouriteSceen({ navigation }) {
-  const favourite = useSelector((state) => state.default.favourite);
+  const favourite = useSelector((state) => state.default.favourites);
 
   return (
     <SafeAreaView style={styles.container}>

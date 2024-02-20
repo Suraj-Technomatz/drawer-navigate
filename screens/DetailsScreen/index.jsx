@@ -19,7 +19,7 @@ export default function DetailsScreen({ route, navigation }) {
   const { id, pageName } = route.params;
 
   const getData = () => {
-    if (pageName) {
+    if (pageName === "चालीसा") {
       return chaleesa.filter((god) => god.id === id);
     } else {
       return godsName.filter((god) => god.id === id);

@@ -18,14 +18,15 @@ const styles = StyleSheet.create({
   },
   line: {
     borderBottomColor: "yellow",
-    borderBottomWidth: 1,
+    borderBottomWidth: 2,
     flex: 1,
     marginRight: 10, // Adjust spacing between line and text
   },
   text: {
-    fontSize: 18,
+    fontSize: 20,
     color: "yellow",
     fontWeight: "bold",
+    minWidth: 60,
   },
 });
 

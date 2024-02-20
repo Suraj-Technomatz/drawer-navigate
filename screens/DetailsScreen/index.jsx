@@ -50,11 +50,11 @@ export default function DetailsScreen({ route, navigation }) {
       {/* <BackgroundImage source={image}> */}
       <SafeAreaView style={styles.detailsContainer}>
         <HeartIcon id={id} label="आरती" navigation={navigation} />
-        <View>
+        {/* <View>
           <Button icon="share" mode="contained" onPress={sharePost}>
             Press me
           </Button>
-        </View>
+        </View> */}
         <ScrollView>
           <View
             style={{

@@ -95,6 +95,7 @@ export default function HomeScreen({ navigation }) {
             </TouchableOpacity>
           </View>
 
+          {/* vrat start */}
           <View
             style={{
               paddingHorizontal: 8,
@@ -129,7 +130,8 @@ export default function HomeScreen({ navigation }) {
               </TouchableOpacity>
             </View>
           </View>
-
+          {/* vrat End */}
+          {/* Mantra start */}
           <View
             style={{
               paddingHorizontal: 8,
@@ -151,11 +153,12 @@ export default function HomeScreen({ navigation }) {
 
             <View style={styles.flex}>
               <TouchableOpacity style={[styles.titleContainer, { flex: 1 }]}>
-                <Text style={styles.title}>गायत्री मंत्र</Text>
+                <Text style={styles.title}>महाकाली मंत्र</Text>
               </TouchableOpacity>
             </View>
           </View>
-
+          {/* Mantra End */}
+          {/* Jyotirling start */}
           <View
             style={{
               paddingHorizontal: 8,
@@ -165,29 +168,48 @@ export default function HomeScreen({ navigation }) {
 
             <View style={styles.flex}>
               <TouchableOpacity style={styles.titleContainer}>
-                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
+                <Text style={styles.title}>सोमनाथ ज्योतिर्लिंग</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.titleContainer}>
-                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
-              </TouchableOpacity>
-            </View>
-            <View style={styles.flex}>
-              <TouchableOpacity style={styles.titleContainer}>
-                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.titleContainer}>
-                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
+                <Text style={styles.title}> मल्लिकार्जुन ज्योतिर्लिंग</Text>
               </TouchableOpacity>
             </View>
             <View style={styles.flex}>
               <TouchableOpacity style={styles.titleContainer}>
-                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
+                <Text style={styles.title}>महाकालेश्वर ज्योतिर्लिंग</Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.titleContainer}>
-                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
+                <Text style={styles.title}>ओंकारेश्वर ज्योतिर्लिंग</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.flex}>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>केदारेश्वर ज्योतिर्लिंग</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>भीमाशंकर ज्योतिर्लिंग</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.flex}>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>विश्वेश्वर ज्योतिर्लिंग</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>त्र्यंबकेश्वर ज्योतिर्लिंग</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.flex}>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>वैद्यनाथ ज्योतिर्लिंग</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>नागेश्वर ज्योतिर्लिंग</Text>
               </TouchableOpacity>
             </View>
           </View>
+          {/* Jyotirling end */}
         </ScrollView>
       </BackgroundImage>
     </View>

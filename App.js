@@ -11,6 +11,7 @@ import HomeScreen from "./screens/HomeScreen";
 import DetailsScreen from "./screens/DetailsScreen";
 import DrawerContent from "./components/DrawerContent";
 import FavouriteSceen from "./screens/FavouriteSceen";
+import ListingScreen from "./screens/ListingScreen";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -56,6 +57,7 @@ function App() {
                 headerShown: false, // Disable default header
               }}
             />
+            <Stack.Screen name="सूची" component={ListingScreen} />
             <Stack.Screen name="पसंदीदा" component={FavouriteSceen} />
           </Stack.Navigator>
         </NavigationContainer>

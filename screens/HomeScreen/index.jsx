@@ -5,9 +5,7 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
-  SafeAreaView,
   StatusBar,
-  FlatList,
 } from "react-native";
 import { Avatar, Button, Card } from "react-native-paper";
 
@@ -17,67 +15,14 @@ import { godsName } from "../../utils";
 import BackgroundImage from "../../components/ImageBackground";
 import Line from "../../components/Line";
 
-const Item = ({ godN, onHandlePress }) => (
-  <View key={godN?.id}>
-    <TouchableOpacity
-      onPress={() => onHandlePress(godN?.id)}
-      style={styles.containerForList}
-    >
-      <View style={{ flexDirection: "row", alignItems: "center" }}>
-        <View>
-          <Image
-            style={styles.img}
-            source={{
-              uri: godN.imageUrl,
-            }}
-          />
-        </View>
-        <View>
-          <Text style={{ fontWeight: "bold", fontSize: 18, marginLeft: 10 }}>
-            {godN.name}
-          </Text>
-        </View>
-      </View>
-      <View>
-        <Icon name="angle-right" size={30} color="#900" />
-      </View>
-    </TouchableOpacity>
-  </View>
-);
-
-const MyComponent = () => (
-  <Card>
-    {/* <Card.Title
-      title="Card Title"
-      subtitle="Card Subtitle"
-      // left={LeftContent}
-    /> */}
-    <Card.Content>
-      <Text variant="titleLarge">Card title</Text>
-      <Text variant="bodyMedium">Card content</Text>
-    </Card.Content>
-    {/* <Card.Cover source={{ uri: "https://picsum.photos/700" }} /> */}
-    {/* <Card.Actions>
-      <Button>Cancel</Button>
-      <Button>Ok</Button>
-    </Card.Actions> */}
-  </Card>
-);
-
 export default function HomeScreen({ navigation }) {
-  const onHandlePress = (id) => {
-    navigation.navigate("आरती", {
-      id,
-    });
-  };
-
-  const image = require("../../assets/gradiant.jpg");
-  const image1 = require("../../assets/backred.jpg");
-  const image2 = require("../../assets/backre2.jpg");
-  const image4 = require("../../assets/back4.jpg");
-  const image5 = require("../../assets/back5.jpg");
   const image6 = require("../../assets/back6.jpg");
 
+  function onHanglePress() {
+    navigation.navigate("सूची", {
+      id: 1,
+    });
+  }
   return (
     <View style={styles.container}>
       <BackgroundImage source={image6}>
@@ -95,7 +40,8 @@ export default function HomeScreen({ navigation }) {
               </Text>
             </View>
             {/* <MyComponent /> */}
-            <View
+            <TouchableOpacity
+              onPress={onHanglePress}
               style={{
                 flexDirection: "row",
                 gap: 20,
@@ -121,7 +67,7 @@ export default function HomeScreen({ navigation }) {
                 </Text>
                 <Text>Total: 52</Text>
               </View>
-            </View>
+            </TouchableOpacity>
 
             <View
               style={{
@@ -149,14 +95,6 @@ export default function HomeScreen({ navigation }) {
                 <Text>Total: 52</Text>
               </View>
             </View>
-
-            {/* <FlatList
-              data={godsName}
-              renderItem={({ item }) => (
-                <Item godN={item} onHandlePress={onHandlePress} />
-              )}
-              keyExtractor={(item) => item.id}
-            /> */}
           </View>
 
           <View

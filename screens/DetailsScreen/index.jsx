@@ -9,17 +9,21 @@ import {
 } from "react-native";
 import * as Sharing from "expo-sharing";
 
-import { godsName } from "../../utils/constant";
+import { godsName, chaleesa } from "../../utils/constant";
 import BackgroundImage from "../../components/ImageBackground";
 import HeartIcon from "../../components/HeartIcon";
 import CustomDialog from "../../components/CustomDialog";
 import { Button } from "react-native-paper";
 
 export default function DetailsScreen({ route, navigation }) {
-  const { id } = route.params;
+  const { id, pageName } = route.params;
 
   const getData = () => {
-    return godsName.filter((god) => god.id === id);
+    if (pageName) {
+      return chaleesa.filter((god) => god.id === id);
+    } else {
+      return godsName.filter((god) => god.id === id);
+    }
   };
 
   const sharePost = async () => {

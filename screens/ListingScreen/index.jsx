@@ -11,7 +11,7 @@ import {
 
 import Icon from "react-native-vector-icons/FontAwesome";
 
-import { godsName } from "../../utils";
+import { godsName, chaleesa } from "../../utils";
 import BackgroundImage from "../../components/ImageBackground";
 
 const Item = ({ godN, onHandlePress }) => (
@@ -48,6 +48,7 @@ export default function HomeScreen({ navigation, route }) {
   const onHandlePress = (id) => {
     navigation.navigate("आरती", {
       id,
+      pageName,
     });
   };
 
@@ -66,6 +67,17 @@ export default function HomeScreen({ navigation, route }) {
                 )}
                 keyExtractor={(item) => item.id}
               />
+            )}
+            {pageName === "चालीसा" && (
+              <View>
+                <FlatList
+                  data={chaleesa}
+                  renderItem={({ item }) => (
+                    <Item godN={item} onHandlePress={onHandlePress} />
+                  )}
+                  keyExtractor={(item) => item.id}
+                />
+              </View>
             )}
           </View>
         </View>

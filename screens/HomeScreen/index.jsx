@@ -7,20 +7,16 @@ import {
   TouchableOpacity,
   StatusBar,
 } from "react-native";
-import { Avatar, Button, Card } from "react-native-paper";
 
-import Icon from "react-native-vector-icons/FontAwesome";
-
-import { godsName } from "../../utils";
 import BackgroundImage from "../../components/ImageBackground";
 import Line from "../../components/Line";
 
 export default function HomeScreen({ navigation }) {
   const image6 = require("../../assets/back6.jpg");
 
-  function onHanglePress() {
+  function onHanglePress(pageName) {
     navigation.navigate("सूची", {
-      pageName: "आरती",
+      pageName,
     });
   }
   return (
@@ -41,7 +37,7 @@ export default function HomeScreen({ navigation }) {
             </View>
             {/* <MyComponent /> */}
             <TouchableOpacity
-              onPress={onHanglePress}
+              onPress={() => onHanglePress("आरती")}
               style={{
                 flexDirection: "row",
                 gap: 20,
@@ -69,7 +65,8 @@ export default function HomeScreen({ navigation }) {
               </View>
             </TouchableOpacity>
 
-            <View
+            <TouchableOpacity
+              onPress={() => onHanglePress("चालीसा")}
               style={{
                 flexDirection: "row",
                 gap: 20,
@@ -81,7 +78,7 @@ export default function HomeScreen({ navigation }) {
               <View>
                 <Image
                   source={{
-                    uri: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRl5Irx7cmVx7F6A-r-lSp4piHCfSzmwN-XsWUwcJvWTg&s",
+                    uri: "https://images.news18.com/ibnlive/uploads/2023/04/hanuman-jayanti-2023-date-history-significance-16806333513x2.jpg",
                   }}
                   style={{ width: 70, height: 70 }}
                 />
@@ -94,7 +91,7 @@ export default function HomeScreen({ navigation }) {
                 </Text>
                 <Text>Total: 52</Text>
               </View>
-            </View>
+            </TouchableOpacity>
           </View>
 
           <View

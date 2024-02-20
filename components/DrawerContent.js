@@ -1,6 +1,7 @@
 // DrawerContent.js
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
+import HorizontalLine from "./Line";
 
 const DrawerContent = ({ navigation }) => {
   const image = require("../assets/aarti-logo.png");
@@ -16,7 +17,7 @@ const DrawerContent = ({ navigation }) => {
           <Text style={styles.logoText}>(आरती संग्रह), सम्पूर्ण....</Text>
         </View>
       </View>
-
+      <HorizontalLine />
       <TouchableOpacity
         onPress={() => handleNavigate("Home")}
         style={styles.tab}

@@ -75,10 +75,12 @@ export default function HomeScreen({ navigation }) {
   const image1 = require("../../assets/backred.jpg");
   const image2 = require("../../assets/backre2.jpg");
   const image4 = require("../../assets/back4.jpg");
+  const image5 = require("../../assets/back5.jpg");
+  const image6 = require("../../assets/back6.jpg");
 
   return (
     <View style={styles.container}>
-      <BackgroundImage source={image1}>
+      <BackgroundImage source={image6}>
         <View style={{ flex: 1 }}>
           <View style={{ marginBottom: 30 }}>
             <View

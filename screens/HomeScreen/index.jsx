@@ -6,6 +6,7 @@ import {
   Image,
   TouchableOpacity,
   StatusBar,
+  ScrollView,
 } from "react-native";
 
 import BackgroundImage from "../../components/ImageBackground";
@@ -22,7 +23,7 @@ export default function HomeScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <BackgroundImage source={image6}>
-        <View style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1 }}>
           <View style={{ marginBottom: 30 }}>
             <View
               style={{
@@ -100,6 +101,7 @@ export default function HomeScreen({ navigation }) {
             }}
           >
             <Line text={"व्रत कथा"} />
+
             <View style={styles.flex}>
               <TouchableOpacity style={styles.titleContainer}>
                 <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
@@ -134,6 +136,24 @@ export default function HomeScreen({ navigation }) {
             }}
           >
             <Line text="मंत्र" />
+
+            <View style={styles.flex}>
+              <TouchableOpacity style={[styles.titleContainer, { flex: 1 }]}>
+                <Text style={styles.title}>गणेश मंत्र</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.flex}>
+              <TouchableOpacity style={[styles.titleContainer, { flex: 1 }]}>
+                <Text style={styles.title}>गायत्री मंत्र</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.flex}>
+              <TouchableOpacity style={[styles.titleContainer, { flex: 1 }]}>
+                <Text style={styles.title}>गायत्री मंत्र</Text>
+              </TouchableOpacity>
+            </View>
           </View>
 
           <View
@@ -142,8 +162,33 @@ export default function HomeScreen({ navigation }) {
             }}
           >
             <Line text="ज्योतिर्लिंग" />
+
+            <View style={styles.flex}>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.flex}>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
+              </TouchableOpacity>
+            </View>
+            <View style={styles.flex}>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
+              </TouchableOpacity>
+            </View>
           </View>
-        </View>
+        </ScrollView>
       </BackgroundImage>
     </View>
   );

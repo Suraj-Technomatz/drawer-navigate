@@ -100,6 +100,32 @@ export default function HomeScreen({ navigation }) {
             }}
           >
             <Line text={"व्रत कथा"} />
+            <View style={styles.flex}>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.flex}>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>पूर्णिमा ब्रत कथाये</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={styles.flex}>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>पूर्णिमा ब्रत कथाये</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.titleContainer}>
+                <Text style={styles.title}>एकादशी ब्रत कथाये</Text>
+              </TouchableOpacity>
+            </View>
           </View>
 
           <View
@@ -147,5 +173,18 @@ const styles = StyleSheet.create({
   },
   textBold: {
     fontWeight: "bold",
+  },
+  flex: {
+    flexDirection: "row",
+    gap: 15,
+    marginBottom: 15,
+  },
+  titleContainer: {
+    backgroundColor: "#900",
+    padding: 8,
+  },
+  title: {
+    fontSize: 16,
+    color: "yellow",
   },
 });

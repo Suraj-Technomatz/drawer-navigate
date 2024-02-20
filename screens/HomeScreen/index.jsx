@@ -20,7 +20,7 @@ export default function HomeScreen({ navigation }) {
 
   function onHanglePress() {
     navigation.navigate("सूची", {
-      id: 1,
+      pageName: "आरती",
     });
   }
   return (

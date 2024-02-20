@@ -42,7 +42,9 @@ const Item = ({ godN, onHandlePress }) => (
   </View>
 );
 
-export default function HomeScreen({ navigation }) {
+export default function HomeScreen({ navigation, route }) {
+  const { pageName } = route.params;
+  console.log("========= route ===========", route.params);
   const onHandlePress = (id) => {
     navigation.navigate("आरती", {
       id,
@@ -56,13 +58,15 @@ export default function HomeScreen({ navigation }) {
       <BackgroundImage source={image}>
         <View style={{ flex: 1 }}>
           <View style={{ marginBottom: 30 }}>
-            <FlatList
-              data={godsName}
-              renderItem={({ item }) => (
-                <Item godN={item} onHandlePress={onHandlePress} />
-              )}
-              keyExtractor={(item) => item.id}
-            />
+            {pageName === "आरती" && (
+              <FlatList
+                data={godsName}
+                renderItem={({ item }) => (
+                  <Item godN={item} onHandlePress={onHandlePress} />
+                )}
+                keyExtractor={(item) => item.id}
+              />
+            )}
           </View>
         </View>
       </BackgroundImage>

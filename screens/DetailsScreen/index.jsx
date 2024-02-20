@@ -7,10 +7,13 @@ import {
   StyleSheet,
   Image,
 } from "react-native";
+import * as Sharing from "expo-sharing";
+
 import { godsName } from "../../utils/constant";
 import BackgroundImage from "../../components/ImageBackground";
 import HeartIcon from "../../components/HeartIcon";
 import CustomDialog from "../../components/CustomDialog";
+import { Button } from "react-native-paper";
 
 export default function DetailsScreen({ route, navigation }) {
   const { id } = route.params;
@@ -18,12 +21,40 @@ export default function DetailsScreen({ route, navigation }) {
   const getData = () => {
     return godsName.filter((god) => god.id === id);
   };
+
+  const sharePost = async () => {
+    try {
+      const result = await Sharing.shareAsync(
+        "Your message or content to share"
+      );
+      if (result.action === Sharing.sharedAction) {
+        if (result.activityType) {
+          // Shared via activity type
+          console.log(`Shared via ${result.activityType}`);
+        } else {
+          // Shared
+          console.log("Shared");
+        }
+      } else if (result.action === Sharing.dismissedAction) {
+        // Dismissed
+        console.log("Dismissed");
+      }
+    } catch (error) {
+      console.error("Error sharing:", error.message);
+    }
+  };
+
   const image = require("../../assets/gradiant.jpg");
   return (
     <>
       {/* <BackgroundImage source={image}> */}
       <SafeAreaView style={styles.detailsContainer}>
         <HeartIcon id={id} label="आरती" navigation={navigation} />
+        <View>
+          <Button icon="share" mode="contained" onPress={sharePost}>
+            Press me
+          </Button>
+        </View>
         <ScrollView>
           <View
             style={{

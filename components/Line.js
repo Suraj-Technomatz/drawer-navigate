@@ -1,16 +1,32 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 
-const HorizontalLine = () => {
-  return <View style={styles.line} />;
+const HorizontalLineWithText = ({ text }) => {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.text}>{text}</Text>
+      <View style={styles.line} />
+    </View>
+  );
 };
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: 15,
+  },
   line: {
     borderBottomColor: "yellow",
     borderBottomWidth: 1,
-    marginVertical: 10, // Adjust as needed
+    flex: 1,
+    marginRight: 10, // Adjust spacing between line and text
+  },
+  text: {
+    fontSize: 18,
+    color: "yellow",
+    fontWeight: "bold",
   },
 });
 
-export default HorizontalLine;
+export default HorizontalLineWithText;

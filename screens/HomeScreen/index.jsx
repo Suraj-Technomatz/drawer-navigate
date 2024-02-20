@@ -53,39 +53,45 @@ export default function HomeScreen({ navigation }) {
   const image = require("../../assets/gradiant.jpg");
 
   return (
-    <SafeAreaView style={styles.container}>
+    <View style={styles.container}>
       <BackgroundImage source={image}>
-        <View>
-          <FlatList
-            data={godsName}
-            renderItem={({ item }) => (
-              <Item godN={item} onHandlePress={onHandlePress} />
-            )}
-            keyExtractor={(item) => item.id}
-          />
-        </View>
-
-        <View
-          style={{ flexDirection: "row", justifyContent: "center", gap: 10 }}
-        >
+        <View style={{ flex: 1 }}>
           <View>
-            <Text>व्रत कथा 1</Text>
+            <FlatList
+              data={godsName}
+              renderItem={({ item }) => (
+                <Item godN={item} onHandlePress={onHandlePress} />
+              )}
+              keyExtractor={(item) => item.id}
+            />
           </View>
-          <View>
-            <Line />
+          <View
+            style={{
+              flexDirection: "row",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            {/* <View> */}
+            {/* <Text>व्रत कथा</Text> */}
+            {/* </View> */}
+            {/* <View> */}
+            <Line text={"व्रत कथा"} />
+            {/* </View> */}
           </View>
         </View>
       </BackgroundImage>
-    </SafeAreaView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    // flex: 1,
+    flex: 1,
     marginTop: StatusBar.currentHeight || 0,
   },
   containerForList: {
+    flex: 1,
     justifyContent: "space-around",
     flexDirection: "row",
     alignItems: "center",

@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { addAarty } from "../../redux/reducers/defaultReducer";
 import {
   View,
@@ -14,9 +14,11 @@ import {
 
 import BackgroundImage from "../../components/ImageBackground";
 import Line from "../../components/Line";
-import { BASE_URL, chaleesa, godsName } from "../../utils";
+import { BASE_URL, chaleesa } from "../../utils";
 
 export default function HomeScreen({ navigation }) {
+  const aarty = useSelector((state) => state.default.aarty);
+
   const image6 = require("../../assets/back6.jpg");
   const dispatch = useDispatch();
 
@@ -26,11 +28,9 @@ export default function HomeScreen({ navigation }) {
     });
   }
   useEffect(() => {
-    // http://localhost:5000
     axios
       .get(`${BASE_URL}/v1/aarti`)
       .then((res) => {
-        console.log("======= RES POSNE =========", res.data);
         if (res?.data) {
           dispatch(addAarty(res.data));
         }
@@ -39,7 +39,7 @@ export default function HomeScreen({ navigation }) {
         console.log("=========== ERRRRR ==========", err);
       });
   }, []);
-  console.log("======== Hello =======");
+
   return (
     <View style={styles.container}>
       <BackgroundImage source={image6}>
@@ -88,7 +88,7 @@ export default function HomeScreen({ navigation }) {
                 >
                   संपूर्ण आरती SAngrah
                 </Text>
-                <Text style={styles.count}>Total: {godsName.length}</Text>
+                <Text style={styles.count}>Total: {aarty.length}</Text>
               </View>
             </TouchableOpacity>
 

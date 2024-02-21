@@ -11,6 +11,7 @@ import {
 
 import BackgroundImage from "../../components/ImageBackground";
 import Line from "../../components/Line";
+import { chaleesa, godsName } from "../../utils";
 
 export default function HomeScreen({ navigation }) {
   const image6 = require("../../assets/back6.jpg");
@@ -20,10 +21,12 @@ export default function HomeScreen({ navigation }) {
       pageName,
     });
   }
+
+  console.log("======== Hello =======");
   return (
     <View style={styles.container}>
       <BackgroundImage source={image6}>
-        <ScrollView style={{ flex: 1 }}>
+        <ScrollView style={{ flex: 1, padding: 5 }}>
           <View style={{ marginBottom: 30 }}>
             <View
               style={{
@@ -36,7 +39,7 @@ export default function HomeScreen({ navigation }) {
                 संपूर्ण आरती संग्रह
               </Text>
             </View>
-            {/* <MyComponent /> */}
+
             <TouchableOpacity
               onPress={() => onHanglePress("आरती")}
               style={{
@@ -56,13 +59,19 @@ export default function HomeScreen({ navigation }) {
                   style={{ width: 70, height: 70 }}
                 />
               </View>
-              <View>
+              <View style={{ justifyContent: "center" }}>
                 <Text
-                  style={[styles.textColor, styles.textBold, { fontSize: 18 }]}
+                  style={[
+                    styles.textColor,
+                    styles.textBold,
+                    {
+                      fontSize: 18,
+                    },
+                  ]}
                 >
                   संपूर्ण आरती SAngrah
                 </Text>
-                <Text>Total: 52</Text>
+                <Text style={styles.count}>Total: {godsName.length}</Text>
               </View>
             </TouchableOpacity>
 
@@ -84,13 +93,13 @@ export default function HomeScreen({ navigation }) {
                   style={{ width: 70, height: 70 }}
                 />
               </View>
-              <View>
+              <View style={{ justifyContent: "center" }}>
                 <Text
                   style={[styles.textColor, styles.textBold, { fontSize: 18 }]}
                 >
                   संपूर्ण चालीसा
                 </Text>
-                <Text>Total: 52</Text>
+                <Text style={styles.count}>Total: {chaleesa.length}</Text>
               </View>
             </TouchableOpacity>
           </View>
@@ -253,5 +262,10 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     color: "yellow",
+  },
+  count: {
+    color: "#fff",
+    fontSize: 14,
+    fontWeight: "bold",
   },
 });

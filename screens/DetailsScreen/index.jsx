@@ -6,8 +6,10 @@ import {
   ScrollView,
   StyleSheet,
   Image,
+  Share,
 } from "react-native";
 import * as Sharing from "expo-sharing";
+import { Audio } from "expo-av";
 
 import { godsName, chaleesa } from "../../utils/constant";
 import BackgroundImage from "../../components/ImageBackground";
@@ -18,6 +20,34 @@ import { Button } from "react-native-paper";
 export default function DetailsScreen({ route, navigation }) {
   const { id, pageName } = route.params;
 
+  const [sound, setSound] = useState(null);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const playSound = async () => {
+    try {
+      const { sound } = await Audio.Sound.createAsync(
+        require("../../assets/audio/laxmi-maa.mp3")
+      );
+      setSound(sound);
+      setIsPlaying(true);
+      await sound.playAsync();
+    } catch (error) {
+      console.log("Error playing sound: ", error);
+    }
+  };
+  const pauseSound = async () => {
+    if (sound !== null) {
+      await sound.pauseAsync();
+      setIsPlaying(false);
+    }
+  };
+  const stopSound = async () => {
+    if (sound !== null) {
+      await sound.stopAsync();
+      await sound.unloadAsync();
+      setSound(null);
+      setIsPlaying(false);
+    }
+  };
   const getData = () => {
     if (pageName === "चालीसा") {
       return chaleesa.filter((god) => god.id === id);
@@ -54,11 +84,10 @@ export default function DetailsScreen({ route, navigation }) {
       {/* <BackgroundImage source={image}> */}
       <SafeAreaView style={styles.detailsContainer}>
         <HeartIcon id={id} label="आरती" navigation={navigation} />
-        {/* <View>
-          <Button icon="share" mode="contained" onPress={sharePost}>
-            Press me
-          </Button>
-        </View> */}
+        <Button onPress={() => (isPlaying ? pauseSound() : playSound())}>
+          {isPlaying ? "Pause" : "Play"}
+        </Button>
+        <Button onPress={stopSound}>Stop</Button>
         <ScrollView>
           <View
             style={{

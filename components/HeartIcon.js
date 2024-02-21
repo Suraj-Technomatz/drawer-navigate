@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { View, TouchableOpacity, Text, StyleSheet, Share } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import FontAwesome from "react-native-vector-icons/FontAwesome";
 
@@ -9,6 +9,7 @@ import CustomDialog from "./CustomDialog";
 function HeartIcon({ label, navigation, id }) {
   const [visible, setVisible] = useState(false);
   const favourites = useSelector((state) => state?.default?.favourites);
+  const godsNames = useSelector((state) => state?.default?.godsNames);
 
   const dispatch = useDispatch();
 
@@ -37,6 +38,37 @@ function HeartIcon({ label, navigation, id }) {
     setVisible(true);
   }
 
+  function getRecord() {
+    // favourites.find
+    console.log(
+      "=========== favourites.find(favourite => favourite.id === id) ",
+      godsNames.find((favourite) => favourite.id === id)
+    );
+    return godsNames.find((favourite) => favourite.id === id);
+  }
+
+  const onShare = async () => {
+    console.log("===== ", getRecord());
+    const record = getRecord();
+
+    try {
+      const result = await Share.share({
+        message: record.lyrics.toString(),
+      });
+      if (result.action === Share.sharedAction) {
+        if (result.activityType) {
+          // shared with activity type of result.activityType
+        } else {
+          // shared
+        }
+      } else if (result.action === Share.dismissedAction) {
+        // dismissed
+      }
+    } catch (error) {
+      alert(error.message);
+    }
+  };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={goBack} style={styles.backBtn}>
@@ -48,13 +80,18 @@ function HeartIcon({ label, navigation, id }) {
         </View>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={toggleFav}>
-        {isFavourite() ? (
-          <FontAwesome name="heart" size={30} color="red" />
-        ) : (
-          <FontAwesome name="heart-o" size={30} color="black" />
-        )}
-      </TouchableOpacity>
+      <View style={{ flexDirection: "row", gap: 15 }}>
+        <TouchableOpacity onPress={onShare}>
+          <FontAwesome name="share" size={30} />
+        </TouchableOpacity>
+        <TouchableOpacity onPress={toggleFav}>
+          {isFavourite() ? (
+            <FontAwesome name="heart" size={30} color="red" />
+          ) : (
+            <FontAwesome name="heart-o" size={30} color="black" />
+          )}
+        </TouchableOpacity>
+      </View>
     </View>
   );
 }

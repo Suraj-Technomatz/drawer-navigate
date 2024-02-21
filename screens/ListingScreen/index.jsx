@@ -13,11 +13,12 @@ import Icon from "react-native-vector-icons/FontAwesome";
 
 import { godsName, chaleesa } from "../../utils";
 import BackgroundImage from "../../components/ImageBackground";
+import { useSelector } from "react-redux";
 
 const Item = ({ godN, onHandlePress }) => (
-  <View key={godN?.id}>
+  <View key={godN?._id}>
     <TouchableOpacity
-      onPress={() => onHandlePress(godN?.id)}
+      onPress={() => onHandlePress(godN?._id)}
       style={styles.containerForList}
     >
       <View style={{ flexDirection: "row", alignItems: "center" }}>
@@ -44,7 +45,8 @@ const Item = ({ godN, onHandlePress }) => (
 
 export default function HomeScreen({ navigation, route }) {
   const { pageName } = route.params;
-  console.log("========= route ===========", route.params);
+  const aarty = useSelector((state) => state.default.aarty);
+  console.log("========= route ===========", aarty);
   const onHandlePress = (id) => {
     navigation.navigate("आरती", {
       id,
@@ -61,11 +63,11 @@ export default function HomeScreen({ navigation, route }) {
           <View style={{ marginBottom: 30 }}>
             {pageName === "आरती" && (
               <FlatList
-                data={godsName}
+                data={aarty}
                 renderItem={({ item }) => (
                   <Item godN={item} onHandlePress={onHandlePress} />
                 )}
-                keyExtractor={(item) => item.id}
+                keyExtractor={(item) => item._id}
               />
             )}
             {pageName === "चालीसा" && (

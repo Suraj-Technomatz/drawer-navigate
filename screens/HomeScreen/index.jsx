@@ -1,4 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
+import axios from "axios";
+import { useDispatch } from "react-redux";
+import { addAarty } from "../../redux/reducers/defaultReducer";
 import {
   View,
   Text,
@@ -11,17 +14,31 @@ import {
 
 import BackgroundImage from "../../components/ImageBackground";
 import Line from "../../components/Line";
-import { chaleesa, godsName } from "../../utils";
+import { BASE_URL, chaleesa, godsName } from "../../utils";
 
 export default function HomeScreen({ navigation }) {
   const image6 = require("../../assets/back6.jpg");
+  const dispatch = useDispatch();
 
   function onHanglePress(pageName) {
     navigation.navigate("सूची", {
       pageName,
     });
   }
-
+  useEffect(() => {
+    // http://localhost:5000
+    axios
+      .get(`${BASE_URL}/v1/aarti`)
+      .then((res) => {
+        console.log("======= RES POSNE =========", res.data);
+        if (res?.data) {
+          dispatch(addAarty(res.data));
+        }
+      })
+      .catch((err) => {
+        console.log("=========== ERRRRR ==========", err);
+      });
+  }, []);
   console.log("======== Hello =======");
   return (
     <View style={styles.container}>

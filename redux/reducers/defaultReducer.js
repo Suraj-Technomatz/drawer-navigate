@@ -4,12 +4,18 @@ import { godsName } from "../../utils";
 const initialState = {
   favourites: [],
   godsNames: godsName,
+  aarty: [],
 };
 
 const counterSlice = createSlice({
   name: "default",
   initialState,
   reducers: {
+    addAarty: (state, action) => {
+      const { aarti } = action.payload;
+      console.log("============== ACTION ========", action.payload);
+      state.aarty = aarti;
+    },
     addFav: (state, action) => {
       const { id } = action.payload;
       const record = state.godsNames.find((godsName) => godsName.id === id);
@@ -31,5 +37,5 @@ const counterSlice = createSlice({
   },
 });
 
-export const { addFav, removeFav } = counterSlice.actions;
+export const { addFav, removeFav, addAarty } = counterSlice.actions;
 export default counterSlice.reducer;

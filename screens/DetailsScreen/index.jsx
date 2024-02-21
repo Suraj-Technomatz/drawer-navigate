@@ -16,10 +16,12 @@ import BackgroundImage from "../../components/ImageBackground";
 import HeartIcon from "../../components/HeartIcon";
 import CustomDialog from "../../components/CustomDialog";
 import { Button } from "react-native-paper";
+import { useSelector } from "react-redux";
 
 export default function DetailsScreen({ route, navigation }) {
   const { id, pageName } = route.params;
-
+  const aarty = useSelector((state) => state.default.aarty);
+  console.log("============== id1111 =======", id);
   const [sound, setSound] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
   const playSound = async () => {
@@ -52,7 +54,7 @@ export default function DetailsScreen({ route, navigation }) {
     if (pageName === "चालीसा") {
       return chaleesa.filter((god) => god.id === id);
     } else {
-      return godsName.filter((god) => god.id === id);
+      return aarty.filter((god) => god._id === id);
     }
   };
 

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   Text,
@@ -17,6 +17,7 @@ import HeartIcon from "../../components/HeartIcon";
 import CustomDialog from "../../components/CustomDialog";
 import { Button } from "react-native-paper";
 import { useSelector } from "react-redux";
+import { retrieveArray, storeArray, removeData } from "../../utils/storage";
 
 export default function DetailsScreen({ route, navigation }) {
   const { id, pageName } = route.params;
@@ -24,6 +25,7 @@ export default function DetailsScreen({ route, navigation }) {
   console.log("============== id1111 =======", id);
   const [sound, setSound] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
+
   const playSound = async () => {
     try {
       const { sound } = await Audio.Sound.createAsync(

@@ -84,8 +84,8 @@ export default function DetailsScreen({ route, navigation }) {
   const image = require("../../assets/gradiant.jpg");
   return (
     <>
-      {/* <BackgroundImage source={image}> */}
       <SafeAreaView style={styles.detailsContainer}>
+        {/* <BackgroundImage source={image}> */}
         <HeartIcon id={id} label="आरती" navigation={navigation} />
         <Button onPress={() => (isPlaying ? pauseSound() : playSound())}>
           {isPlaying ? "Pause" : "Play"}
@@ -125,8 +125,8 @@ export default function DetailsScreen({ route, navigation }) {
             </View>
           </View>
         </ScrollView>
+        {/* </BackgroundImage> */}
       </SafeAreaView>
-      {/* </BackgroundImage> */}
     </>
   );
 }

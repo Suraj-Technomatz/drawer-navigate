@@ -56,8 +56,8 @@ export default function HomeScreen({ navigation, route }) {
   const image = require("../../assets/back6.jpg");
 
   return (
-    <View style={styles.container}>
-      <BackgroundImage source={image}>
+    <BackgroundImage source={image}>
+      <View style={styles.container}>
         <View style={{ flex: 1 }}>
           <View style={{ marginBottom: 30 }}>
             {pageName === "आरती" && (
@@ -82,8 +82,8 @@ export default function HomeScreen({ navigation, route }) {
             )}
           </View>
         </View>
-      </BackgroundImage>
-    </View>
+      </View>
+    </BackgroundImage>
   );
 }
 

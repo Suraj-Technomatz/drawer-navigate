@@ -41,8 +41,8 @@ export default function HomeScreen({ navigation }) {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <BackgroundImage source={image6}>
+    <BackgroundImage source={image6}>
+      <View style={styles.container}>
         <ScrollView style={{ flex: 1, padding: 5 }}>
           <View style={{ marginBottom: 30 }}>
             <View
@@ -237,8 +237,8 @@ export default function HomeScreen({ navigation }) {
           </View>
           {/* Jyotirling end */}
         </ScrollView>
-      </BackgroundImage>
-    </View>
+      </View>
+    </BackgroundImage>
   );
 }
 

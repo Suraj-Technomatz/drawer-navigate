@@ -16,15 +16,23 @@ import { BASE_URL } from "../../utils";
 const image = require("../../assets/back6.jpg");
 
 export default function SuggestionScreen({ navigation }) {
-  const [form, setForm] = useState({ name: "", phone: "", suggestion: "" });
+  const initForm = { name: "", phone: "", suggestion: "" };
+  const [form, setForm] = useState({ ...initForm });
 
   const onHandleSubmitForm = () => {
+    console.log("=========== onHandleSubmitForm =========", form);
     axios
-      .post(`${BASE_URL}/v1/suggestion`)
+      .post(`${BASE_URL}/v1/suggestion/create`, {
+        ...form,
+        rating: 5,
+      })
       .then((res) => {
         console.log("=====================..>>>>>>>>>>", res.data);
+        setForm({ ...initForm });
+        navigation.navigate("Home Stack");
       })
       .catch((err) => {
+        console.log("============= ERROR =========>>>>", err.message);
         console.error(err);
       });
   };

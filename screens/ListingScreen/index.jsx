@@ -46,7 +46,6 @@ const Item = ({ godN, onHandlePress }) => (
 export default function HomeScreen({ navigation, route }) {
   const { pageName } = route.params;
   const aarty = useSelector((state) => state.default.aarty);
-  console.log("========= route ===========", aarty);
   const onHandlePress = (id) => {
     navigation.navigate("आरती", {
       id,

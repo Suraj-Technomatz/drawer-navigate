@@ -2,13 +2,19 @@
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet, Image } from "react-native";
 import HorizontalLine from "./Line";
+import { contentItems, extraContentItems } from "../utils";
+import HorizontalLineWithText from "./Line";
 
 const DrawerContent = ({ navigation }) => {
   const image = require("../assets/aarti-logo.png");
+
   const handleNavigate = (screen) => {
-    navigation.navigate(screen);
-    navigation.closeDrawer(); // Close the drawer after navigating
+    if (screen) {
+      navigation.navigate(screen);
+      navigation.closeDrawer(); // Close the drawer after navigating
+    }
   };
+
   return (
     <View style={styles.container}>
       <View style={styles.logoContainer}>
@@ -17,20 +23,29 @@ const DrawerContent = ({ navigation }) => {
           <Text style={styles.logoText}>(आरती संग्रह), सम्पूर्ण....</Text>
         </View>
       </View>
-      <HorizontalLine />
-      <TouchableOpacity
-        onPress={() => handleNavigate("Home")}
-        style={styles.tab}
-      >
-        <Text style={styles.tabText}>आरती संग्रह</Text>
-      </TouchableOpacity>
-
-      <TouchableOpacity
-        onPress={() => handleNavigate("पसंदीदा")}
-        style={styles.tab}
-      >
-        <Text style={styles.tabText}>पसंदीदा</Text>
-      </TouchableOpacity>
+      {contentItems.map((item) => (
+        <TouchableOpacity
+          onPress={() => handleNavigate(item.redirectTo)}
+          style={styles.tab}
+        >
+          <Text style={styles.tabText}>{item.name}</Text>
+        </TouchableOpacity>
+      ))}
+      <HorizontalLineWithText isFullLine />
+      {/* Extra Items */}
+      <View style={[styles.extraContainer]}>
+        <View>
+          <Text style={{ fontWeight: "bold" }}>Extra</Text>
+        </View>
+        {extraContentItems.map((item) => (
+          <TouchableOpacity
+            onPress={() => handleNavigate(item.redirectTo)}
+            style={styles.tab}
+          >
+            <Text style={styles.tabText}>{item.name}</Text>
+          </TouchableOpacity>
+        ))}
+      </View>
     </View>
   );
 };
@@ -54,14 +69,15 @@ const styles = StyleSheet.create({
     marginTop: 60,
     backgroundColor: "orangered",
     color: "#fff",
+    paddingLeft: 12,
   },
   tab: {
-    backgroundColor: "#fff",
-    paddingVertical: 10,
-    marginBottom: 15,
+    paddingVertical: 2,
+    marginBottom: 2,
   },
   tabText: {
     fontWeight: "bold",
+    color: "#fff",
     fontSize: 16,
     paddingVertical: 8,
     paddingHorizontal: 8,
@@ -70,5 +86,8 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     borderRadius: 10,
+  },
+  extraContainer: {
+    marginVertical: 20,
   },
 });

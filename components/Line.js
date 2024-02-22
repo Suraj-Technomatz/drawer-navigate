@@ -1,11 +1,13 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
-const HorizontalLineWithText = ({ text }) => {
+const HorizontalLineWithText = ({ text, isFullLine = false }) => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.text}>{text}</Text>
-      <View style={styles.line} />
+    <View style={[!isFullLine && styles.container]}>
+      {!isFullLine && <Text style={styles.text}>{text}</Text>}
+      <View
+        style={[styles.line, isFullLine && { borderBottomColor: "grey" }]}
+      />
     </View>
   );
 };

@@ -12,6 +12,7 @@ import DetailsScreen from "./screens/DetailsScreen";
 import DrawerContent from "./components/DrawerContent";
 import FavouriteSceen from "./screens/FavouriteSceen";
 import ListingScreen from "./screens/ListingScreen";
+import SuggestionScreen from "./screens/SuggestionScreen";
 
 const Drawer = createDrawerNavigator();
 const Stack = createStackNavigator();
@@ -59,6 +60,7 @@ function App() {
             />
             <Stack.Screen name="सूची" component={ListingScreen} />
             <Stack.Screen name="पसंदीदा" component={FavouriteSceen} />
+            <Stack.Screen name="suggestion" component={SuggestionScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </Provider>

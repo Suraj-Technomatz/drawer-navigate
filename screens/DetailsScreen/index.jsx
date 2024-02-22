@@ -22,7 +22,6 @@ import { retrieveArray, storeArray, removeData } from "../../utils/storage";
 export default function DetailsScreen({ route, navigation }) {
   const { id, pageName } = route.params;
   const aarty = useSelector((state) => state.default.aarty);
-  console.log("============== id1111 =======", id);
   const [sound, setSound] = useState(null);
   const [isPlaying, setIsPlaying] = useState(false);
 

@@ -31,12 +31,9 @@ function HeartIcon({ label, navigation, id }) {
   async function removeFromFav() {
     // get favourite values from storage
     const allFavs = await retrieveArray("favourite");
-    console.log("========== All Fav3 =========", allFavs);
     // remove this ID to fav
     const updatedFavIDs = allFavs.filter((fav) => fav !== id);
-    console.log("========== All Fav 4=========", allFavs);
     // update storage
-
     storeArray("favourite", updatedFavIDs);
     setIsFav(false);
   }
@@ -44,25 +41,19 @@ function HeartIcon({ label, navigation, id }) {
   async function addToFav() {
     // get favourite values from storage
     const allFavs = await retrieveArray("favourite");
-    console.log("========== All Fav =========", allFavs);
     // Add this ID to fav
     allFavs.push(id);
-    console.log("========== All Fav 2 =========", allFavs);
     // update storage
     const isSto = await storeArray("favourite", allFavs);
-    console.log("========== All Fav 3 =========", allFavs);
     setIsFav(true);
   }
 
   useEffect(() => {
-    console.log("=========== useEffect ===========");
     isThisPostInFav();
   }, []);
 
   async function isThisPostInFav() {
     const allFavs = await retrieveArray("favourite");
-    console.log("=========== isThisPostInFav ========", allFavs);
-    console.log("=========== isThisPostInFav ========", id);
     if (allFavs) {
       setIsFav(allFavs.some((fav) => fav === id));
     }
@@ -73,7 +64,6 @@ function HeartIcon({ label, navigation, id }) {
   };
 
   function isFavourite() {
-    console.log("========= FAvourite =========", favourites);
     if (favourites.length > 0) {
       return favourites.some((favourite) => favourite?.id === id);
     } else {
@@ -83,12 +73,8 @@ function HeartIcon({ label, navigation, id }) {
 
   function toggleFav() {
     if (isFav) {
-      // dispatch(removeFav({ id }));
-      console.log("======== FAV remove ========");
       removeFromFav();
     } else {
-      console.log("======== FAV Add ========");
-      // dispatch(addFav({ id }));
       addToFav();
     }
   }
@@ -98,16 +84,10 @@ function HeartIcon({ label, navigation, id }) {
   }
 
   function getRecord() {
-    // favourites.find
-    console.log(
-      "=========== favourites.find(favourite => favourite.id === id) ",
-      godsNames.find((favourite) => favourite.id === id)
-    );
     return godsNames.find((favourite) => favourite.id === id);
   }
 
   const onShare = async () => {
-    console.log("===== ", getRecord());
     const record = getRecord();
 
     try {
@@ -127,7 +107,6 @@ function HeartIcon({ label, navigation, id }) {
       alert(error.message);
     }
   };
-  console.log("=============== IS FAV ====", isFav);
 
   return (
     <View style={styles.container}>

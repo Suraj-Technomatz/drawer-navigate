@@ -13,7 +13,6 @@ const counterSlice = createSlice({
   reducers: {
     addAarty: (state, action) => {
       const { aarti } = action.payload;
-      console.log("============== ACTION ========", action.payload);
       state.aarty = aarti;
     },
     addFav: (state, action) => {
@@ -31,7 +30,6 @@ const counterSlice = createSlice({
           records.push(godsName);
         }
       });
-      console.log("========== RECORDS =========", records);
       state.favourites = records;
     },
   },

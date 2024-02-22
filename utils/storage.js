@@ -23,7 +23,6 @@ export const retrieveData = async (key) => {
 };
 
 export const removeData = async (key) => {
-  console.log("=========== KEY ========", key);
   try {
     await AsyncStorage.removeItem(key);
 
@@ -37,10 +36,8 @@ export const removeData = async (key) => {
 
 // Storing an array of strings
 export const storeArray = async (key, array) => {
-  console.log("======== storage storeArray ===", key, array);
   try {
     const jsonValue = JSON.stringify(array);
-    console.log("========= jsonValue ========", jsonValue);
     await AsyncStorage.setItem(key, jsonValue);
     console.log("Array stored successfully");
     return true;
@@ -53,9 +50,7 @@ export const storeArray = async (key, array) => {
 // Retrieving an array of strings
 export const retrieveArray = async (key) => {
   try {
-    console.log("========== retrieveArray 1 =====");
     const jsonValue = await AsyncStorage.getItem(key);
-    console.log("========== retrieveArray 2 =====", jsonValue);
     if (jsonValue !== null) {
       const array = JSON.parse(jsonValue);
       console.log("Retrieved array:", array);

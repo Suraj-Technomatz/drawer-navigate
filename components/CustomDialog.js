@@ -9,7 +9,6 @@ import {
 } from "react-native-paper";
 
 const CustomDialog = ({ visible, toggle, title, handleSubmit }) => {
-  console.log("=========== CustomDialog =====", visible);
   return (
     <PaperProvider>
       <View style={{ flex: 1, backgroundColor: "red" }}>
